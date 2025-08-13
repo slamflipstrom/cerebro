@@ -39,6 +39,11 @@ brew install pocketbase
    ```bash
    chmod +x backend/pocketbase
    ```
+6. **macOS only:** Remove quarantine attribute to bypass Gatekeeper:
+   ```bash
+   xattr -d com.apple.quarantine backend/pocketbase
+   ```
+   Or alternatively, go to **System Preferences → Privacy & Security** and click "Allow Anyway" when the warning appears.
 
 ### Development Setup
 
@@ -291,6 +296,18 @@ ls -la backend/pocketbase  # Check local binary
 
 # Reinstall if needed (see installation options above)
 ```
+
+**macOS "cannot verify developer" warning:**
+
+```bash
+# Remove quarantine attribute
+xattr -d com.apple.quarantine backend/pocketbase
+
+# Or check current attributes
+xattr -l backend/pocketbase
+```
+
+Alternatively: **System Preferences → Privacy & Security → Click "Allow Anyway"**
 
 ### Development Tips
 
