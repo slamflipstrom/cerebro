@@ -8,6 +8,37 @@ A modern spaced repetition learning application built with Svelte and PocketBase
 
 - Node.js 18+
 - PNPM 8+
+- PocketBase binary (see installation options below)
+
+### PocketBase Installation
+
+Choose one of the following installation methods:
+
+#### Option A: Package Manager (Recommended)
+```bash
+# macOS
+brew install pocketbase
+
+# Linux (Ubuntu/Debian) - if available in repositories
+# Check https://pocketbase.io/docs/ for current options
+
+# Windows
+# Use manual installation below
+```
+
+#### Option B: Manual Installation (Most Secure)
+1. Visit [PocketBase Downloads](https://pocketbase.io/docs/)
+2. Download the appropriate binary for your platform
+3. Verify the download (optional but recommended):
+   ```bash
+   # Check SHA256 hash against published checksums
+   sha256sum pocketbase  # Linux/macOS
+   ```
+4. Place the binary in `/backend/pocketbase`
+5. Make it executable:
+   ```bash
+   chmod +x backend/pocketbase
+   ```
 
 ### Development Setup
 
@@ -19,7 +50,9 @@ A modern spaced repetition learning application built with Svelte and PocketBase
    pnpm install
    ```
 
-2. **Start development environment:**
+2. **Install PocketBase:** Follow one of the installation options above
+
+3. **Start development environment:**
 
    ```bash
    pnpm dev
@@ -27,7 +60,7 @@ A modern spaced repetition learning application built with Svelte and PocketBase
 
    This starts both the UI and PocketBase backend in parallel.
 
-3. **Access the application:**
+4. **Access the application:**
    - **Frontend**: http://localhost:5173
    - **Backend Admin**: http://localhost:8090/\_/
 
@@ -249,11 +282,29 @@ cd shared/types && pnpm build
 pnpm check
 ```
 
+**PocketBase not found:**
+
+```bash
+# Verify PocketBase installation
+which pocketbase          # Check if in PATH
+ls -la backend/pocketbase  # Check local binary
+
+# Reinstall if needed (see installation options above)
+```
+
 ### Development Tips
 
 - Use `pnpm dev:ui` or `pnpm dev:backend` to run services individually
 - PocketBase data persists in `/backend/pb_data/`
 - UI hot-reloads automatically on file changes
 - Check browser console and terminal for error messages
+
+## 🔮 Future Enhancements
+
+### Planned Improvements
+- **Docker Support** - Containerized development and deployment setup for easier environment management
+- **Mobile App** - React Native or Capacitor-based mobile application
+- **Advanced Analytics** - Enhanced learning progress visualization
+- **Plugin System** - Extensible architecture for custom learning algorithms
 
 ---

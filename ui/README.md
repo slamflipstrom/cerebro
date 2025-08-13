@@ -1,38 +1,72 @@
-# sv
+# UI Package (@spaced-repetition-trainer/ui)
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+The Svelte frontend for the Spaced Repetition Trainer application.
 
-## Creating a project
+> **Note:** For complete setup instructions, see the [main README](../README.md) in the project root.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Quick Start
 
+### From Project Root (Recommended)
 ```bash
-# create a new project in the current directory
-npx sv create
+# Start both UI and backend
+pnpm dev
 
-# create a new project in my-app
-npx sv create my-app
+# Start only UI
+pnpm dev:ui
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
+### From UI Directory
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+cd ui
+pnpm dev
 ```
 
-## Building
+## Package-Specific Commands
 
-To create a production version of your app:
+| Command | Description |
+|---------|-------------|
+| `pnpm dev` | Start Vite development server |
+| `pnpm build` | Build for production |
+| `pnpm preview` | Preview production build |
+| `pnpm test` | Run tests with Vitest |
+| `pnpm test:ui` | Run tests with Vitest UI |
+| `pnpm check` | Type check with svelte-check |
+| `pnpm lint` | Lint code with ESLint |
+| `pnpm lint:fix` | Lint and auto-fix issues |
+| `pnpm format` | Format code with Prettier |
 
-```bash
-npm run build
+## UI Architecture
+
+```
+src/
+├── App.svelte           # Main application component
+├── lib/
+│   ├── components/      # Reusable UI components
+│   ├── services/        # API and business logic  
+│   ├── stores/          # Svelte stores for state
+│   └── types.ts         # Local type definitions
+└── main.ts              # Application entry point
 ```
 
-You can preview the production build with `npm run preview`.
+## Key Technologies
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- **Svelte 5** - Reactive UI framework
+- **Vite 6** - Build tool and dev server
+- **TypeScript** - Type safety
+- **Vitest** - Testing framework
+- **ESLint + Prettier** - Code quality
+
+## Styling Guidelines
+
+- **CSS Grid** preferred for layout
+- **Flexbox** as secondary choice
+- **Component-scoped CSS** (Svelte default)
+- **Avoid nested ternaries** in templates
+
+## Using Shared Types
+
+```typescript
+import { User, Deck, Card, Review } from '@spaced-repetition-trainer/types'
+```
+
+See [CLAUDE.md](./CLAUDE.md) for detailed development guidance.
