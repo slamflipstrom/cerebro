@@ -1,0 +1,29 @@
+{
+  "name": "spaced-repetition-trainer-monorepo",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n \"UI,Backend\" -c \"cyan,green\" \"pnpm dev:ui\" \"pnpm dev:backend\"",
+    "dev:ui": "pnpm --filter ui dev",
+    "dev:backend": "cd backend && ./pocketbase serve --dev",
+    "build": "pnpm --filter ui build",
+    "preview": "pnpm --filter ui preview",
+    "test": "pnpm --filter ui test",
+    "test:ui": "pnpm --filter ui test:ui",
+    "check": "pnpm --filter ui check",
+    "check:watch": "pnpm --filter ui check:watch",
+    "lint": "pnpm --filter ui lint",
+    "lint:fix": "pnpm --filter ui lint:fix",
+    "format": "pnpm --filter ui format",
+    "install:all": "pnpm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=8"
+  }
+}
