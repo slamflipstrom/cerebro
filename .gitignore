@@ -21,4 +21,18 @@ Thumbs.db
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+.vite/
 
+# PocketBase
+backend/pb_data/
+backend/pocketbase
+backend/pocketbase.exe
+
+# Workspace
+node_modules/
+*/node_modules/
+.pnpm-debug.log*
+
+# Build outputs
+ui/dist/
+shared/*/dist/
